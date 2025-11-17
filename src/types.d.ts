@@ -11,6 +11,10 @@ export interface MenuItem {
   pricePes: number;
   discountPerc?: number;
   image?: string;
+  isActive?: boolean;
+  quantityAvailiable?: number;
+  promoQuantity?: number;
+  promoEndsAt?: number;
 }
 
 export interface OrderItem {

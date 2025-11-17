@@ -11,7 +11,9 @@ export const menuItems: MenuItem[] = [
     description: "Fragrant Ghanaian jollof served with grilled chicken.",
     pricePes: 5000,
     discountPerc: 10,
-    image: item1
+    image: item1,
+    quantityAvailiable: 12,
+    isActive:true
   },
   {
     id: "m2",
@@ -19,6 +21,7 @@ export const menuItems: MenuItem[] = [
     description: "Stir-fried rice with vegetables and tender chicken pieces.",
     discountPerc: 20,
     pricePes: 4500,
+    quantityAvailiable: 12,
     image: item2
   },
   {
@@ -26,6 +29,7 @@ export const menuItems: MenuItem[] = [
     name: "Beef Sauce",
     description: "Savory beef in rich vegetable sauce.",
     pricePes: 5700,
+    quantityAvailiable: 12,
     image: item3
   },
   {
@@ -34,13 +38,16 @@ export const menuItems: MenuItem[] = [
     description: "Crispy yam chips with spiced fried fish.",
     pricePes: 4200,
     discountPerc: 5,
-    image: item1
+    image: item1,
+    quantityAvailiable: 12,
+    isActive: true
   },
   {
     id: "m5",
     name: "Banku & Tilapia",
     description: "Charcoal-grilled tilapia served with banku and pepper.",
     pricePes: 6500,
+    quantityAvailiable: 12,
     image: item2
   },
   {
@@ -48,6 +55,7 @@ export const menuItems: MenuItem[] = [
     name: "Beef Burger",
     description: "Juicy beef patty with cheese, onions, and house sauce.",
     pricePes: 4800,
+    quantityAvailiable: 12,
     image: item3
   },
   {
@@ -55,20 +63,25 @@ export const menuItems: MenuItem[] = [
     name: "Spring Rolls (3 pcs)",
     description: "Crispy vegetable spring rolls.",
     pricePes: 2000,
-    image: item1
+    image: item1,
+    quantityAvailiable: 12,
+    isActive: true,
   },
   {
     id: "m8",
     name: "Fruit Juice",
     description: "Freshly blended watermelon and pineapple juice.",
     pricePes: 1500,
-    image: item2
+    image: item2,
+    quantityAvailiable: 12,
+    isActive: true,
   },
   {
     id: "m9",
     name: "Chicken Shawarma",
     description: "Sliced chicken with creamy garlic sauce in soft pita.",
     pricePes: 3500,
+    quantityAvailiable: 12,
     image: item3
   },
   {
@@ -76,6 +89,101 @@ export const menuItems: MenuItem[] = [
     name: "Fufu & Goat Light Soup",
     description: "Pounded cassava and plantain served with spicy goat soup.",
     pricePes: 7000,
-    image: item1
-  }
+    image: item1,
+    quantityAvailiable: 12,
+    isActive: true,
+  }, {
+    id: "1",
+    name: "Beef Burger",
+    description: "Juicy beef patty with cheese, lettuce, and tomato",
+    pricePes: 2500,
+    discountPerc: 10,
+    image: item1,
+    isActive: false,
+    quantityAvailiable: 20,
+  },
+  {
+    id: "2",
+    name: "Chicken Wings",
+    description: "Spicy fried wings with a side of dip",
+    pricePes: 1800,
+    image: item2,
+    isActive: false,
+    quantityAvailiable: 15,
+  },
+  {
+    id: "3",
+    name: "Veggie Salad",
+    description: "Fresh vegetables with vinaigrette dressing",
+    pricePes: 1200,
+    discountPerc: 5,
+    image: item3,
+    isActive: false,
+    quantityAvailiable: 25,
+  },
+  {
+    id: "4",
+    name: "Spaghetti Bolognese",
+    description: "Pasta with rich beef tomato sauce",
+    pricePes: 2200,
+    image: item2,
+    isActive: false,
+    quantityAvailiable: 18,
+  },
+  {
+    id: "5",
+    name: "Grilled Fish",
+    description: "Grilled tilapia with herbs and lemon",
+    pricePes: 3000,
+    discountPerc: 15,
+    image: item3,
+    isActive: false,
+    quantityAvailiable: 10,
+  },
+  {
+    id: "6",
+    name: "French Fries",
+    description: "Crispy golden fries with ketchup",
+    pricePes: 900,
+    image: item1,
+    isActive: false,
+    quantityAvailiable: 50,
+  },
+  {
+    id: "7",
+    name: "Chocolate Cake",
+    description: "Rich chocolate cake slice with frosting",
+    pricePes: 1500,
+    discountPerc: 5,
+    image: item2,
+    isActive: false,
+    quantityAvailiable: 12,
+  },
+  {
+    id: "8",
+    name: "Cheese Pizza",
+    description: "Classic pizza with mozzarella cheese",
+    pricePes: 2800,
+    image: item3,
+    isActive: false,
+    quantityAvailiable: 8,
+  },
+  {
+    id: "9",
+    name: "Mango Smoothie",
+    description: "Refreshing mango smoothie",
+    pricePes: 1200,
+    image: item2,
+    isActive: false,
+    quantityAvailiable: 30,
+  },
+  {
+    id: "10",
+    name: "Grilled Chicken Sandwich",
+    description: "Grilled chicken breast with lettuce and mayo",
+    pricePes: 2000,
+    image: item3,
+    isActive: false,
+    quantityAvailiable: 14,
+  },
 ];
