@@ -92,6 +92,7 @@ function Wallet() {
               <div className="mt-4 space-y-5 h-full overflow-y-auto text-sm">
                 {transactions.map((t:Transaction, index:number) => (
                   <div 
+                    className="transition hover:bg-gray-50 cursor-pointer rounded-xl p-0.5"
                     key={index}
                     onClick={() => setSelectedTransaction(t)}
                   >
