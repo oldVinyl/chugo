@@ -34,7 +34,7 @@ function Wallet() {
         <div className="p-2 grid grid-cols-1 lg:grid-cols-3 gap-3">
 
           {/* LEFT COLUMN */}
-          <div className="bg-white rounded-3xl p-4 h-[85vh]">
+          <div className="bg-white rounded-3xl p-4 h-[82vh]">
             <h2 className="text-sm font-semibold">Payment details</h2>
 
             <div className="flex gap-3 mt-4">
@@ -79,7 +79,7 @@ function Wallet() {
           </div>
 
           {/* MIDDLE COLUMN */}
-          <div className="bg-white rounded-3xl p-4 h-[85vh]">
+          <div className="bg-white rounded-3xl p-4 h-[82vh]">
             <div className="w-full h-full overflow-hidden no-scrollbar">
               <div className="flex justify-between items-center">
                 <h2 className="text-sm font-semibold">Transactions</h2>
@@ -112,7 +112,7 @@ function Wallet() {
           </div>
 
           {/* RIGHT COLUMN */}
-          <div className="bg-white rounded-3xl p-6 flex flex-col justify-cnter h-[85vh]">
+          <div className="bg-white rounded-3xl p-6 flex flex-col justify-cnter h-[82vh]">
 
             {selectedTransaction ? (
               <>

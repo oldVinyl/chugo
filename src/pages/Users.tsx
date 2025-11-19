@@ -6,7 +6,7 @@ import type { User } from "../types";
 const UserListItem: React.FC<{ user: User; setActiveUser: (user: User) => void }> = ({ user, setActiveUser }) => (
   <div 
     onClick={() => setActiveUser(user)}
-    className="flex justify-between h-full items-center p-4 rounded-full bg-[var(--bg)] transition hover:bg-gray-200 cursor-pointer">
+    className="flex justify-between h-full max-h-[60px] items-center p-4 rounded-full bg-[var(--bg)] transition hover:bg-gray-200 cursor-pointer">
     <div className="flex items-center">
       <div className="mr-4 w-10 h-10">
         <img className="rounded-full" src={user.image} alt={user.name} />
@@ -26,7 +26,7 @@ const StatusPanel: React.FC<{ activeUser?: User }> = ({ activeUser }) => {
   if (!activeUser) return <p className="p-6 bg-white rounded-2xl w-full h-full">Select a User to see their details</p>;
 
   return (
-    <div className="p-6 bg-white rounded-2xl w-full h-full">
+    <div className="p-6 bg-white rounded-2xl w-full h-full overflow-auto no-scrollbar">
       <h3 className="text-xl font-semibold mb-4 text-gray-800">Status</h3>
 
       <div className="flex flex-col items-center mb-4 gap-2">
@@ -90,14 +90,14 @@ function Users() {
     <div className="h-full w-full">
       <div className="w-full h-full rounded-2xl">
         <div className="min-h-screen">
-          <div className="flex flex-col lg:flex-row gap-3">
-            <div className="lg:w-2/3 h-full space-y-2 p-4 rounded-xl bg-white">
+          <div className="flex flex-col h-[82vh] lg:flex-row gap-3">
+            <div className="lg:w-2/3 space-y-2 p-4 rounded-xl bg-white overflow-auto no-scrollbar">
               {mockUsers.map((user, idx) => (
                 <UserListItem key={idx} user={user} setActiveUser={setActiveUser} />
               ))}
             </div>
 
-            <div className="lg:w-1/3 h-full">
+            <div className="lg:w-1/3 h-[82vh]">
               <StatusPanel activeUser={activeUser} />
             </div>
           </div>

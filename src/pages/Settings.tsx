@@ -4,7 +4,7 @@ import pfp from "../assets/userPfp.jpg";
 import businesspfp from "../assets/restaurantPlaceholder.png"
 
 const GeneralDetailsPanel: React.FC = () => (
-  <div className="flex-1 bg-white p-4 md:p-8 rounded-3xl space-y-6">
+  <div className="flex-1 bg-white p-4 md:p-8 rounded-3xl space-y-6 overflow-auto no-scrollbar">
     <div className="flex flex-col items-center mb-6">
       <img src={pfp} className="w-24 h-24 rounded-full bg-gray-200 overflow-hidden" />
       <div className='flex flex-col items-center mt-2'>
@@ -58,7 +58,7 @@ const GeneralDetailsPanel: React.FC = () => (
 );
 
 const BusinessDetailsPanel: React.FC = () => (
-  <div className="flex-1 bg-white p-4 rounded-3xl space-y-6">
+  <div className="flex-1 bg-white p-4 rounded-3xl space-y-6 overflow-auto no-scrollbar">
     <div className="flex flex-col items-center mb-6">
       <img src={businesspfp} className="w-20 h-20 rounded-full bg-gray-100 p-2 border border-gray-200 overflow-hidden" />
       <div className='flex flex-col items-center mt-2'>
@@ -108,7 +108,7 @@ function Settings() {
     <div className="h-full w-full">
       <div className="w-full h-full rounded-2xl">
         <div className="min-h-screen">
-          <div className="flex flex-col lg:flex-row gap-6">
+          <div className="flex flex-col lg:flex-row gap-6 h-[82vh]">
             <GeneralDetailsPanel />
             <BusinessDetailsPanel />
           </div>

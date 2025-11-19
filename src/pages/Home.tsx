@@ -64,7 +64,7 @@ function Home() {
 
   return (
     <div className="h-full w-full">
-      <div className="w-full h-full flex gap-2">
+      <div className="w-full flex gap-2 h-full">
         <div className="w-3/5 h-full flex flex-col gap-2 overflow-y-auto no-scrollbar">
           <div className="relative rounded-3xl w-full min-h-1/3 p-2 bg-white flex flex-col gap-2 pr-8">
             {showLeftScroll && (
@@ -251,7 +251,7 @@ function Home() {
 
 
         </div>
-        <div className="w-2/5 max-h-screen rounded-3xl bg-white h-full p-2 flex flex-col items-center justify-evenly gap-2">
+        <div className="w-2/5 max-h-screen rounded-3xl bg-white h-full p-2 flex flex-col items-center justify-evenly overflow-y-auto gap-2 pb-4 no-scrollbar">
           {selectedOrder ? (
             isRefunding ? (
               <Refund

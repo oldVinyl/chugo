@@ -137,9 +137,9 @@ const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
   return (
     <div className="h-full w-full">
-      <div className="bg-white w-full h-full min-h-[79vh] rounded-2xl p-2">
-        
-        <div className="flex gap-4 px-2">
+      <div className="relative bg-white w-full h-full rounded-2xl p-2 overflow-auto no-scrollbar">
+        <div className="sticky bg-white z-20 h-[20px] -top-2 left- w-full" />
+        <div className="sticky top-0 z-50 bg-white flex gap-4 px-2">
           <button
             className={`p-2 rounded-full ${activeTab === "food" ? "bg-[var(--bg)]" : ""}`}
             onClick={() => setActiveTab("food")}
