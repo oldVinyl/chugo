@@ -15,6 +15,8 @@ export interface MenuItem {
   quantityAvailiable?: number;
   promoQuantity?: number;
   promoEndsAt?: number;
+  features?: string[];
+  previewImage?: string;
 }
 
 export interface OrderItem {
@@ -33,4 +35,13 @@ export interface Order {
   modeOfPayment: "cash" | "card";
   notes?: string;
   paymentSummary: PaymentSummary;
+}
+
+export interface Transaction {
+  id: string;
+  amount: number;
+  taxPerc: number;
+  expensesPes: number;
+  ordersPes: number;
+  modeOfPayment: "card" | "credit";
 }

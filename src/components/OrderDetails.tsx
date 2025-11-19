@@ -117,15 +117,15 @@ export const OrderDetails: React.FC<OrderDetailsProps> = ({ order, onRefund }) =
       </div>
 
       <div className="w-full">
-        <div className="h-full w-full flex items-center justify-between">
-          <button className="bg-black rounded-xl h-full p-2 flex gap-3 items-center hover:scale-95 hover:bg-gray-900 active:scale-105 transition">
+        <div className="h-full w-full flex items-center justify-evenly gap-10">
+          <button className="bg-black w-full rounded-xl h-full p-2 flex gap-3 items-center hover:scale-95 hover:bg-gray-900 active:scale-105 transition">
             <div className="bg-gray-300 rounded-full p-2">
               <PrintIcon className="h-5 w-5" />
             </div>
             <p className="text-white">Print Reciept</p>
           </button>
           <button 
-            className="bg-black rounded-xl h-full p-2 flex gap-3 items-center hover:scale-95 hover:bg-gray-900 active:scale-105 transition"
+            className="bg-black w-full rounded-xl h-full p-2 flex gap-3 items-center hover:scale-95 hover:bg-gray-900 active:scale-105 transition"
             onClick={onRefund}
           >
             <div className="bg-gray-300 rounded-full p-2">

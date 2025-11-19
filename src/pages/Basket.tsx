@@ -1,7 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { menuItems as initialMenuItems } from "../api/mock/MenuItems";
-import { AddIcon, CediIcon } from "../assets/Icons";
+import { AddIcon, CediIcon, UploadIcon } from "../assets/Icons";
 import type { MenuItem } from "../types";
+
+
+function calculateDiscount(
+  originalPrice: number | string, 
+  newPrice: number | string
+) {
+  const orig = Number(originalPrice);
+  const newP = Number(newPrice);
+
+  if (!orig || orig <= 0) return 0;
+  if (!newP || newP < 0) return 0;
+
+  const discount = ((orig - newP) / orig) * 100;
+  return Math.max(0, Math.min(discount, 100));
+}
+
+
 
 function Basket() {
   const [menuItems, setMenuItems] = useState(initialMenuItems);
@@ -9,6 +26,13 @@ function Basket() {
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const [promoQuantity, setPromoQuantity] = useState(0);
   const [promoDuration, setPromoDuration] = useState({ hours: 0, minutes: 0 });
+  const [quickEditItem, setQuickEditItem] = useState<MenuItem | null>(null);
+  const [editTitle, setEditTitle] = useState("");
+  const [editDetails, setEditDetails] = useState("");
+  const [editFeatures, setEditFeatures] = useState<string[]>([""]);
+  const [editNewPrice, setEditNewPrice] = useState("");
+  const [editActualPrice, setEditActualPrice] = useState("");
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -56,6 +80,56 @@ const handleActivateItem = (item: MenuItem) => {
   setSelectedItem(null);
   setPromoQuantity(1);
   setPromoDuration({ hours: 0, minutes: 0 });
+};
+
+const updateItem = (id: string) => {
+  setMenuItems(prev =>
+    prev.map(item =>
+      item.id === id
+        ? {
+            ...item,
+            name: editTitle,
+            description: editDetails,
+            pricePes: Math.round(Number(editActualPrice) * 100),
+            discountPerc: calculateDiscount(editActualPrice, editNewPrice),
+            features: editFeatures,
+            image: quickEditItem?.previewImage || item.image
+          }
+        : item
+    )
+  );
+
+  setQuickEditItem(null);
+};
+
+
+const handleQuickEditItem = (item: MenuItem) => {
+ setQuickEditItem({
+    ...item,
+    previewImage: item.image
+  });
+  setEditTitle(item.name ?? "");
+  setEditDetails(item.description ?? "");
+  setEditFeatures(item.features ?? [""]);
+  setEditNewPrice(((item.discountPerc ? item.pricePes * (1 - item.discountPerc/100) : item.pricePes) / 100).toFixed(2));
+  setEditActualPrice((item.pricePes / 100).toFixed(2));
+};
+
+const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const file = e.target.files?.[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onloadend = () => {
+    setQuickEditItem(prev =>
+      prev
+        ? { ...prev, previewImage: reader.result as string }
+        : prev
+    );
+  };
+
+  reader.readAsDataURL(file);
 };
 
 
@@ -158,6 +232,7 @@ const handleActivateItem = (item: MenuItem) => {
                           min-w-[150px] max-w-[200px] flex-grow
                           rounded-3xl
                         "
+                        onClick={() => handleQuickEditItem(item)}
                       >
                         <div>
                           <img className="h-[100px]" src={item.image} alt={item.name} />
@@ -291,6 +366,112 @@ const handleActivateItem = (item: MenuItem) => {
             </div>
           </div>
         )}
+        {quickEditItem && (
+          <div className="fixed inset-0 bg-black/40 flex items-center justify-center p-4">
+            <div className="bg-white p-4 rounded-2xl w-full max-w-lg relative">
+
+              <h2 className="text-xl font-semibold mb-4">Edit food</h2>
+
+              <div className="flex gap-4 mb-4">
+                <div className="flex flex-col items-center gap-1">
+                  <img 
+                    src={quickEditItem.previewImage}
+                    className="h-24 w-24 rounded-xl object-cover"
+                  />
+
+                  {/* hidden input */}
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={handleImageChange}
+                  />
+
+                  <button 
+                    className="flex flex-col items-center"
+                    onClick={() => fileInputRef.current?.click()}
+                  >
+                    <UploadIcon />
+                    <p className="text-xs">Cover Image</p>
+                  </button>
+                </div>
+
+                <div className="flex-1">
+                  <label className="text-sm">Food Title</label>
+                  <input 
+                    className="w-full border rounded-xl p-2"
+                    value={editTitle}
+                    onChange={e => setEditTitle(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <label className="text-sm">Add details</label>
+              <textarea 
+                className="w-full border rounded-xl p-2 mb-3"
+                value={editDetails}
+                onChange={e => setEditDetails(e.target.value)}
+              />
+
+              <div className="grid grid-cols-2 gap-3 mb-3">
+                <div>
+                  <label className="text-sm">New price</label>
+                  <input 
+                    className="w-full border rounded-xl p-2"
+                    value={editNewPrice}
+                    onChange={e => setEditNewPrice(e.target.value)}
+                  />
+                </div>
+
+                <div>
+                  <label className="text-sm">Actual price</label>
+                  <input 
+                    className="w-full border rounded-xl p-2"
+                    value={editActualPrice}
+                    onChange={e => setEditActualPrice(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <label className="text-sm">Features</label>
+              {editFeatures.map((f, idx) => (
+                <input 
+                  key={idx}
+                  className="w-full border rounded-xl p-2 mb-2"
+                  value={f}
+                  onChange={e => {
+                    const updated = [...editFeatures];
+                    updated[idx] = e.target.value;
+                    setEditFeatures(updated);
+                  }}
+                />
+              ))}
+
+              <button 
+                className="text-blue-700 mt-1"
+                onClick={() => setEditFeatures(prev => [...prev, ""])}
+              >
+                Add slot
+              </button>
+
+              <button 
+                className="bg-black text-white w-full p-3 rounded-xl mt-5"
+                onClick={() => updateItem(quickEditItem.id)}
+              >
+                Update
+              </button>
+
+              <button 
+                className="absolute top-2 right-3 text-3xl rotate-45"
+                onClick={() => setQuickEditItem(null)}
+              >
+                +
+              </button>
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   );
