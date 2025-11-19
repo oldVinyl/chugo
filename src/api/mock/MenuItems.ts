@@ -44,8 +44,8 @@ export const menuItems: MenuItem[] = [
   },
   {
     id: "m5",
-    name: "Banku & Tilapia",
-    description: "Charcoal-grilled tilapia served with banku and pepper.",
+    name: "Spaghetti Bolongnes",
+    description: "The Italian thing",
     pricePes: 6500,
     quantityAvailiable: 12,
     image: item2
@@ -86,8 +86,8 @@ export const menuItems: MenuItem[] = [
   },
   {
     id: "m10",
-    name: "Fufu & Goat Light Soup",
-    description: "Pounded cassava and plantain served with spicy goat soup.",
+    name: "Stuffed Turkey",
+    description: "A thanksgiving special",
     pricePes: 7000,
     image: item1,
     quantityAvailiable: 12,

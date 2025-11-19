@@ -103,4 +103,129 @@ export const orders: Order[] = [
       { menuItem: menuItems[7], quantity: 1 }
     ])
   }
+  // 
+  ,
+  {
+    id: "6",
+    orderId: "ORD-2007",
+    name: "Lando Norris",
+    contact: "0506677889",
+    time: new Date("2025-11-14T18:20:00Z"),
+    image: menuItems[1].image,
+    menu: [
+      { menuItem: menuItems[7], quantity: 1 },
+      { menuItem: menuItems[8], quantity: 3 },
+      { menuItem: menuItems[9], quantity: 7 },
+      { menuItem: menuItems[10], quantity: 2 }
+    ],
+    modeOfPayment: "cash",
+    paymentSummary: computePaymentSummary([
+      { menuItem: menuItems[7], quantity: 1 },
+      { menuItem: menuItems[8], quantity: 3 },
+      { menuItem: menuItems[9], quantity: 7 },
+      { menuItem: menuItems[10], quantity: 2 }
+    ])
+  },
+  {
+    id: "7",
+    orderId: "ORD-2012",
+    name: "Charles LeClerc",
+    contact: "0506677889",
+    time: new Date("2025-11-14T18:20:00Z"),
+    image: menuItems[2].image,
+    menu: [
+      { menuItem: menuItems[3], quantity: 1 },
+      { menuItem: menuItems[2], quantity: 2 },
+      { menuItem: menuItems[4], quantity: 2 },
+      { menuItem: menuItems[9], quantity: 2 }
+    ],
+    modeOfPayment: "cash",
+    paymentSummary: computePaymentSummary([
+      { menuItem: menuItems[3], quantity: 1 },
+      { menuItem: menuItems[2], quantity: 2 },
+      { menuItem: menuItems[4], quantity: 2 },
+      { menuItem: menuItems[9], quantity: 2 }
+    ])
+  },
+  {
+    id: "8",
+    orderId: "ORD-2005",
+    name: "Michael Achel",
+    contact: "0506677889",
+    time: new Date("2025-11-14T18:20:00Z"),
+    image: menuItems[7].image,
+    menu: [
+      { menuItem: menuItems[5], quantity: 3 },
+      { menuItem: menuItems[6], quantity: 2 },
+      { menuItem: menuItems[2], quantity: 2 }
+    ],
+    modeOfPayment: "cash",
+    paymentSummary: computePaymentSummary([
+      { menuItem: menuItems[5], quantity: 3 },
+      { menuItem: menuItems[6], quantity: 2 },
+      { menuItem: menuItems[2], quantity: 2 }
+    ])
+  },
+  {
+    id: "9",
+    orderId: "ORD-2005",
+    name: "Max Verstappen",
+    contact: "0506677889",
+    time: new Date("2025-11-14T18:20:00Z"),
+    image: menuItems[7].image,
+    menu: [
+      { menuItem: menuItems[4], quantity: 5 }
+    ],
+    modeOfPayment: "cash",
+    paymentSummary: computePaymentSummary([
+      { menuItem: menuItems[4], quantity: 5 }
+    ])
+  },
+  {
+    id: "10",
+    orderId: "ORD-2005",
+    name: "Oscar Piastri",
+    contact: "0506677889",
+    time: new Date("2025-11-14T18:20:00Z"),
+    image: menuItems[7].image,
+    menu: [
+      { menuItem: menuItems[2], quantity: 2 },
+      { menuItem: menuItems[3], quantity: 2 }
+    ],
+    modeOfPayment: "cash",
+    paymentSummary: computePaymentSummary([
+      { menuItem: menuItems[2], quantity: 2 },
+      { menuItem: menuItems[3], quantity: 2 }
+    ])
+  },
+  {
+    id: "11",
+    orderId: "ORD-2005",
+    name: "Michael Owusu",
+    contact: "0506677889",
+    time: new Date("2025-11-14T18:20:00Z"),
+    image: menuItems[7].image,
+    menu: [
+      { menuItem: menuItems[7], quantity: 1 }
+    ],
+    modeOfPayment: "cash",
+    paymentSummary: computePaymentSummary([
+      { menuItem: menuItems[7], quantity: 1 }
+    ])
+  },
+  {
+    id: "12",
+    orderId: "ORD-2005",
+    name: "Michael Owusu",
+    contact: "0506677889",
+    time: new Date("2025-11-14T18:20:00Z"),
+    image: menuItems[7].image,
+    menu: [
+      { menuItem: menuItems[7], quantity: 1 }
+    ],
+    modeOfPayment: "cash",
+    paymentSummary: computePaymentSummary([
+      { menuItem: menuItems[7], quantity: 1 }
+    ])
+  }
 ];
