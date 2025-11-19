@@ -45,3 +45,11 @@ export interface Transaction {
   ordersPes: number;
   modeOfPayment: "card" | "credit";
 }
+
+export interface User {
+  name: string,
+  image?: string,
+  role: "staff" | "user" | "admin" |string,
+  username: string,
+  passkey: string
+}
