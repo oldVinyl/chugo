@@ -41,7 +41,7 @@ const Sidebar: React.FC = () => (
       <nav className="flex flex-col justify-end items-center gap-[0.35vw]">
         <SidebarLink to="/settings" Icon={SettingsIcon} />
         <SidebarLink to="/users" Icon={UserManagementIcon} />
-        <SidebarLink to="/logout" Icon={LogoutIcon} />
+        <SidebarLink to="/" Icon={LogoutIcon} />
       </nav>
     </div>
   </div>

@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import { BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
@@ -10,6 +10,7 @@ import Upload from "./pages/Upload";
 import Scan from "./pages/Scan";
 import Settings from "./pages/Settings";
 import Users from "./pages/Users";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -24,8 +25,9 @@ function App() {
           <Route path="scan" element={<Scan />} />
           <Route path="settings" element={<Settings />} />
           <Route path="users" element={<Users />} />
-          <Route index element={<Navigate to="/home" replace />} />
+          {/* <Route index element={<Navigate to="/home" replace />} /> */}
         </Route>
+        <Route index element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
