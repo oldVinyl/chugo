@@ -57,7 +57,7 @@ function Basket() {
 
   const handleActivateItem = (item: MenuItem) => {
     setMenuItems((prev) => {
-      const now = Date.now(); // ✅ allowed here
+      const now = Date.now(); 
 
       const durationMs =
         promoDuration.hours * 60 * 60 * 1000 +
@@ -136,9 +136,9 @@ function Basket() {
   };
 
   return (
-    <div className="h-full w-full">
-      <div className="relative bg-white w-full h-full rounded-3xl overflow-auto no-scrollbar">
-        <div className="sticky top-0 z-20 bg-white flex gap-4 py-2 px-6">
+    <div className="h-full w-full max-md:overflow-auto max-md:h-[93vh]">
+      <div className="relative max-lg:-top-1 bg-white w-full h-full rounded-3xl overflow-auto no-scrollbar">
+        <div className="sticky max-lg:fixed max-lg:top-[70px] top-0 z-20 bg-white flex gap-4 py-2 px-6 w-full max-lg:justify-evenly">
           <button
             className={`p-2 rounded-full ${activeTab === "food" ? "bg-[var(--bg)]" : ""}`}
             onClick={() => setActiveTab("food")}
@@ -153,10 +153,10 @@ function Basket() {
           </button>
         </div>
 
-        <div className="mt-4">
+        <div className="mt-4 max-lg:mt-[60px]">
           <div className="w-full p-2">
             {activeTab === "food" && (
-              <div className="flex flex-wrap gap-2 w-full justify-evenly">
+              <div className="md:flex md:flex-wrap grid grid-cols-2 gap-2 max-lg:gap-3 w-full lg:justify-evenly justify-center">
                 {menuItems.map((item: MenuItem) => {
                   const priceCedi = item.pricePes / 100;
                   const discountPrice = item.discountPerc
@@ -169,7 +169,7 @@ function Basket() {
                       className="
                         relative bg-[var(--bg)] p-2
                         flex flex-col items-center justify-center flex-1
-                        min-w-[200px] max-w-[200px] flex-grow
+                        md:min-w-[200px] max-w-[250px] flex-grow
                         rounded-3xl
                       "
                     >
@@ -225,7 +225,7 @@ function Basket() {
 
           <div className="w-full p-2">
             {activeTab === "active" && (
-              <div className="flex flex-wrap gap-2 w-full justify-evenly">
+              <div className="md:flex md:flex-wrap md:gap-2 gap-3 grid grid-cols-2 w-full justify-evenly ">
                 {menuItems
                   .filter((item: MenuItem) => item.isActive)
                   .map((item: MenuItem) => {
@@ -240,7 +240,7 @@ function Basket() {
                         className="
                           relative bg-[var(--bg)] p-2
                           flex flex-col items-center justify-center
-                          min-w-[150px] max-w-[200px] flex-grow
+                          md:min-w-[150px] max-w-[250px] flex-grow
                           rounded-3xl
                         "
                         onClick={() => handleQuickEditItem(item)}
