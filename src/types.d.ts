@@ -47,9 +47,9 @@ export interface Transaction {
 }
 
 export interface User {
-  name: string,
-  image?: string,
-  role: "staff" | "user" | "admin" |string,
-  username: string,
-  passkey: string
+  name: string;
+  image?: string;
+  role: "staff" | "user" | "admin" | string;
+  username: string;
+  passkey: string;
 }

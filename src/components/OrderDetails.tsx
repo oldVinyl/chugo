@@ -1,13 +1,26 @@
 import { useState } from "react";
-import { CediIcon, TickDoubleIcon, WalletIcon, CardIcon, TickDarkIcon, PrintIcon, RefundIcon } from "../assets/Icons";
+import {
+  CediIcon,
+  TickDoubleIcon,
+  WalletIcon,
+  CardIcon,
+  TickDarkIcon,
+  PrintIcon,
+  RefundIcon,
+} from "../assets/Icons";
 import type { Order } from "../types";
 
 interface OrderDetailsProps {
   order: Order;
   onRefund?: () => void;
 }
-export const OrderDetails: React.FC<OrderDetailsProps> = ({ order, onRefund }) => {
-  const [selected, setSelected] = useState<"cash" | "card">(order.modeOfPayment);
+export const OrderDetails: React.FC<OrderDetailsProps> = ({
+  order,
+  onRefund,
+}) => {
+  const [selected, setSelected] = useState<"cash" | "card">(
+    order.modeOfPayment,
+  );
 
   const totalPaid =
     (order.paymentSummary.subtotalPes +
@@ -36,7 +49,9 @@ export const OrderDetails: React.FC<OrderDetailsProps> = ({ order, onRefund }) =
             <div className="pl-2 pt-2">
               {order.menu.map((item, idx) => {
                 const priceCedi = item.menuItem.discountPerc
-                  ? item.menuItem.pricePes * (1 - item.menuItem.discountPerc / 100) / 100
+                  ? (item.menuItem.pricePes *
+                      (1 - item.menuItem.discountPerc / 100)) /
+                    100
                   : item.menuItem.pricePes / 100;
 
                 return (
@@ -47,7 +62,9 @@ export const OrderDetails: React.FC<OrderDetailsProps> = ({ order, onRefund }) =
                     </span>
                     <span className="flex items-center justify-center">
                       <CediIcon className="inline h-3" />
-                      <span>&nbsp;{(priceCedi * item.quantity).toFixed(2)}</span>
+                      <span>
+                        &nbsp;{(priceCedi * item.quantity).toFixed(2)}
+                      </span>
                     </span>
                   </p>
                 );
@@ -62,21 +79,28 @@ export const OrderDetails: React.FC<OrderDetailsProps> = ({ order, onRefund }) =
                 <span>Subtotal</span>
                 <span className="flex items-center justify-center">
                   <CediIcon className="inline h-3" />
-                  <span>&nbsp;{(order.paymentSummary.subtotalPes / 100).toFixed(2)}</span>
+                  <span>
+                    &nbsp;{(order.paymentSummary.subtotalPes / 100).toFixed(2)}
+                  </span>
                 </span>
               </p>
               <p className="flex justify-between">
                 <span>Tax</span>
                 <span className="flex items-center justify-center">
                   <CediIcon className="inline h-3" />
-                  <span>&nbsp;{(order.paymentSummary.taxPes / 100).toFixed(2)}</span>
+                  <span>
+                    &nbsp;{(order.paymentSummary.taxPes / 100).toFixed(2)}
+                  </span>
                 </span>
               </p>
               <p className="flex justify-between">
                 <span>Service Fee</span>
                 <span className="flex items-center justify-center">
                   <CediIcon className="inline h-3" />
-                  <span>&nbsp;{(order.paymentSummary.serviceFeePes / 100).toFixed(2)}</span>
+                  <span>
+                    &nbsp;
+                    {(order.paymentSummary.serviceFeePes / 100).toFixed(2)}
+                  </span>
                 </span>
               </p>
             </div>
@@ -102,7 +126,9 @@ export const OrderDetails: React.FC<OrderDetailsProps> = ({ order, onRefund }) =
           >
             <WalletIcon className="h-10 w-10" />
             <p>Cash</p>
-            {selected === "cash" && <TickDarkIcon className="absolute top-3 right-3" />}
+            {selected === "cash" && (
+              <TickDarkIcon className="absolute top-3 right-3" />
+            )}
           </div>
 
           <div
@@ -111,7 +137,9 @@ export const OrderDetails: React.FC<OrderDetailsProps> = ({ order, onRefund }) =
           >
             <CardIcon className="w-10 h-10" />
             <p>Card</p>
-            {selected === "card" && <TickDarkIcon className="absolute top-3 right-3" />}
+            {selected === "card" && (
+              <TickDarkIcon className="absolute top-3 right-3" />
+            )}
           </div>
         </div>
       </div>
@@ -124,7 +152,7 @@ export const OrderDetails: React.FC<OrderDetailsProps> = ({ order, onRefund }) =
             </div>
             <p className="text-white">Print Reciept</p>
           </button>
-          <button 
+          <button
             className="bg-black w-full rounded-xl h-full p-2 flex gap-3 items-center hover:scale-95 hover:bg-gray-900 active:scale-105 transition"
             onClick={onRefund}
           >

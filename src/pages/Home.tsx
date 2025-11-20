@@ -9,8 +9,8 @@ import { Refund } from "../components/Refund";
 const orderCategories = (() => {
   const map = new Map<string, number>();
 
-  orders.forEach(order => {
-    order.menu.forEach(item => {
+  orders.forEach((order) => {
+    order.menu.forEach((item) => {
       map.set(item.menuItem.name, (map.get(item.menuItem.name) || 0) + 1);
     });
   });
@@ -33,11 +33,13 @@ function Home() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [showLeftScroll, setShowLeftScroll] = useState(false);
   const [basket, setBasket] = useState<MenuItem[]>([]);
-  const [selectedOrder, setSelectedOrder] = useState<Order | null>(orders[0] ?? null);
+  const [selectedOrder, setSelectedOrder] = useState<Order | null>(
+    orders[0] ?? null,
+  );
   const [isRefunding, setIsRefunding] = useState(false);
 
   const handleAddToBasket = (item: MenuItem) => {
-    setBasket(prev => [...prev, item]);
+    setBasket((prev) => [...prev, item]);
     console.log("Basket:", [...basket, item]);
   };
 
@@ -55,10 +57,9 @@ function Home() {
     return () => container.removeEventListener("scroll", handler);
   }, []);
 
-
   const filteredOrders = selectedCategory
-    ? orders.filter(order =>
-        order.menu.some(item => item.menuItem.name === selectedCategory)
+    ? orders.filter((order) =>
+        order.menu.some((item) => item.menuItem.name === selectedCategory),
       )
     : orders;
 
@@ -72,7 +73,8 @@ function Home() {
                 className="absolute left-3 top-1/2 hover:scale-95 transition z-10 bg-white p-2 rounded-full"
                 onClick={() => {
                   const container = document.getElementById("order-scroll");
-                  if (container) container.scrollBy({ left: -220, behavior: "smooth" });
+                  if (container)
+                    container.scrollBy({ left: -220, behavior: "smooth" });
                 }}
               >
                 <BackIcon />
@@ -82,7 +84,8 @@ function Home() {
               className="absolute right-3 top-1/2 hover:scale-95 transition z-10"
               onClick={() => {
                 const container = document.getElementById("order-scroll");
-                if (container) container.scrollBy({ left: 220, behavior: "smooth" });
+                if (container)
+                  container.scrollBy({ left: 220, behavior: "smooth" });
               }}
             >
               <ForwardIcon />
@@ -92,7 +95,6 @@ function Home() {
               <p className="whitespace-nowrap">Order Line</p>
 
               <div className="flex gap-2 justify-start items-center overflow-auto no-scrollbar">
-
                 <div
                   onClick={() => setSelectedCategory(null)}
                   className={`px-2 py-1 rounded-full text-xs inline-flex justify-center items-center gap-2 cursor-pointer 
@@ -107,7 +109,7 @@ function Home() {
                   </div>
                 </div>
 
-                {orderCategories.map(cat => {
+                {orderCategories.map((cat) => {
                   const active = selectedCategory === cat.name;
                   return (
                     <div
@@ -135,7 +137,7 @@ function Home() {
                 id="order-scroll"
                 className="w-full flex flex-row gap-2 pt-3 overflow-x-auto no-scrollbar scroll-smooth"
               >
-                {filteredOrders.map(order => (
+                {filteredOrders.map((order) => (
                   <div
                     key={order.id}
                     className="bg-[var(--bg)] p-2 w-[40vw] max-w-[195px] min-w-[150px] h-[185px] rounded-3xl flex flex-col items-center justify-center flex-shrink-0 cursor-pointer"
@@ -143,7 +145,9 @@ function Home() {
                   >
                     <div className="flex flex-col items-center">
                       <p className="text-sm md:text-base">{order.name}</p>
-                      <p className="text-sm md:text-base">Order #{order.orderId}</p>
+                      <p className="text-sm md:text-base">
+                        Order #{order.orderId}
+                      </p>
 
                       <p className="text-[10px] text-gray-400 py-0.5">
                         {formatOrderTime(order.time)}
@@ -195,10 +199,13 @@ function Home() {
                   id="food-scroll"
                   className="w-full grid grid-rows-2 grid-flow-col gap-3 overflow-x-auto no-scrollbar scroll-smooth px-6 py-3"
                 >
-                  {menuItems.map(item => {
+                  {menuItems.map((item) => {
                     const priceCedi = (item.pricePes / 100).toFixed(2);
                     const discountPrice = item.discountPerc
-                      ? (item.pricePes * (1 - item.discountPerc / 100) / 100).toFixed(2)
+                      ? (
+                          (item.pricePes * (1 - item.discountPerc / 100)) /
+                          100
+                        ).toFixed(2)
                       : null;
 
                     return (
@@ -222,13 +229,17 @@ function Home() {
                         </div>
 
                         <div className="flex flex-col items-center">
-                          <p className="text-sm md:text-base px-10 text-center">{item.name}</p>
+                          <p className="text-sm md:text-base px-10 text-center">
+                            {item.name}
+                          </p>
 
                           <p className="text-sm md:text-base flex items-center justify-center text-gray-500">
                             <span>
                               <CediIcon className="inline h-2 w-2 text-gray-300" />
                             </span>
-                            <span className="text-xs">{discountPrice ?? priceCedi}</span>
+                            <span className="text-xs">
+                              {discountPrice ?? priceCedi}
+                            </span>
                           </p>
 
                           <p className="text-sm md:text-base flex gap-1 items-center justify-center text-gray-500">
@@ -243,13 +254,10 @@ function Home() {
                       </div>
                     );
                   })}
-
                 </div>
               </div>
             </div>
           </div>
-
-
         </div>
         <div className="w-2/5 max-h-screen rounded-3xl bg-white h-full p-2 flex flex-col items-center justify-evenly overflow-y-auto gap-2 pb-4 no-scrollbar">
           {selectedOrder ? (
@@ -265,13 +273,14 @@ function Home() {
               />
             )
           ) : (
-            <p className="text-gray-500 text-center text-lg mt-10">lease select an order</p>
+            <p className="text-gray-500 text-center text-lg mt-10">
+              lease select an order
+            </p>
           )}
-
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Home;

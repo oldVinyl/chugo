@@ -26,7 +26,6 @@ const SidebarLink: React.FC<{
   </NavLink>
 );
 
-
 const Sidebar: React.FC = () => (
   <div className="absolute left-2.5 flex w-[6vw] min-w-[60px] h-[var(--sidebar-cont-h)] flex-col justify-end">
     <div className="bg-white h-[var(--sidebar-h)] rounded-full flex flex-col justify-between p-2 overflow-hidden ">

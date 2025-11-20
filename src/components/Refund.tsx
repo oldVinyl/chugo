@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { CediIcon, BackIcon, VISAIcon, TickLightIcon, RefundIcon } from "../assets/Icons";
+import {
+  CediIcon,
+  BackIcon,
+  VISAIcon,
+  TickLightIcon,
+  RefundIcon,
+} from "../assets/Icons";
 import type { Order } from "../types";
 
 interface RefundProps {
@@ -9,12 +15,12 @@ interface RefundProps {
 
 export const Refund: React.FC<RefundProps> = ({ order, onBack }) => {
   const [refundQuantities, setRefundQuantities] = useState(
-    order.menu.map(() => 0)
+    order.menu.map(() => 0),
   );
 
   const refundTotal = order.menu.reduce((acc, item, idx) => {
     const priceCedi = item.menuItem.discountPerc
-      ? item.menuItem.pricePes * (1 - item.menuItem.discountPerc / 100) / 100
+      ? (item.menuItem.pricePes * (1 - item.menuItem.discountPerc / 100)) / 100
       : item.menuItem.pricePes / 100;
     return acc + priceCedi * refundQuantities[idx];
   }, 0);
@@ -40,7 +46,9 @@ export const Refund: React.FC<RefundProps> = ({ order, onBack }) => {
             <div className="py-2 flex flex-col gap-2">
               {order.menu.map((item, idx) => {
                 const priceCedi = item.menuItem.discountPerc
-                  ? item.menuItem.pricePes * (1 - item.menuItem.discountPerc / 100) / 100
+                  ? (item.menuItem.pricePes *
+                      (1 - item.menuItem.discountPerc / 100)) /
+                    100
                   : item.menuItem.pricePes / 100;
 
                 return (
@@ -65,17 +73,22 @@ export const Refund: React.FC<RefundProps> = ({ order, onBack }) => {
                         }}
                         className="w-10 h-8 text-center text-[1.25vw] border border-black rounded-lg p-0.5"
                       />
-                      <span className="w-8 h-8 text-[1.25vw] text-center border rounded-lg p-0.5 flex items-center justify-center">{item.quantity}x</span>
-                      <span className="text-[1.25vw] ml-1">{item.menuItem.name}</span>
+                      <span className="w-8 h-8 text-[1.25vw] text-center border rounded-lg p-0.5 flex items-center justify-center">
+                        {item.quantity}x
+                      </span>
+                      <span className="text-[1.25vw] ml-1">
+                        {item.menuItem.name}
+                      </span>
                     </span>
                     <span className="flex items-center text-[1.25vw] justify-center">
                       <CediIcon className="inline h-2.5" />
-                      <span>&nbsp;{(priceCedi * refundQuantities[idx]).toFixed(2)}</span>
+                      <span>
+                        &nbsp;{(priceCedi * refundQuantities[idx]).toFixed(2)}
+                      </span>
                     </span>
                   </p>
                 );
               })}
-
             </div>
           </div>
 
@@ -86,9 +99,7 @@ export const Refund: React.FC<RefundProps> = ({ order, onBack }) => {
                 <span>
                   <VISAIcon className="inline" />
                 </span>
-                <span>
-                **** **** **** 5633
-                </span>
+                <span>**** **** **** 5633</span>
                 &nbsp;&nbsp;&nbsp;
                 <span>
                   <TickLightIcon />
@@ -112,9 +123,7 @@ export const Refund: React.FC<RefundProps> = ({ order, onBack }) => {
               <div className="bg-white rounded-full p-2">
                 <RefundIcon />
               </div>
-              <span className="text-white">
-                 Pay Refund
-              </span>
+              <span className="text-white">Pay Refund</span>
             </button>
           </div>
         </div>

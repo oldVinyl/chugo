@@ -9,8 +9,7 @@ import {
   Pie,
   Cell,
 } from "recharts";
-import type { PieLabelRenderProps } from 'recharts';
-
+import type { PieLabelRenderProps } from "recharts";
 
 const COLORS = ["var(--acc)", "#0E1322"];
 
@@ -24,7 +23,11 @@ interface CustomTooltipProps {
   label?: string;
 }
 
-const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload, label }) => {
+const CustomTooltip: React.FC<CustomTooltipProps> = ({
+  active,
+  payload,
+  label,
+}) => {
   if (!active || !payload || payload.length === 0) return null;
 
   return (
@@ -74,30 +77,22 @@ export const AnalyticsBarChart: React.FC<BarChartProps> = ({ data }) => (
   <div className="w-full h-[300px]">
     <ResponsiveContainer width="100%" height="100%">
       <BarChart data={data} barGap={12} barSize={35}>
-        
         <XAxis dataKey="month" />
         <YAxis hide />
 
-        
         <Tooltip cursor={{ fill: "var(--bg)" }} content={<CustomTooltip />} />
-        
+
         <Bar
           dataKey="a"
           stackId="x"
           fill="var(--acc)"
           radius={[0, 0, 20, 20]}
         />
-        <Bar
-          dataKey="b"
-          stackId="x"
-          fill="#0E1322"
-          radius={[20, 20, 0, 0]}
-        />
+        <Bar dataKey="b" stackId="x" fill="#0E1322" radius={[20, 20, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
   </div>
 );
-
 
 export const AnalyticsPieChart: React.FC<PieChartProps> = ({
   data,
@@ -118,7 +113,7 @@ export const AnalyticsPieChart: React.FC<PieChartProps> = ({
 
     const clampedRadius = Math.min(radius, outerRadius * 0.9);
 
-    const angle = midAngle ?? 0; 
+    const angle = midAngle ?? 0;
 
     const x = cx + clampedRadius * Math.cos(-angle * RADIAN);
     const y = cy + clampedRadius * Math.sin(-angle * RADIAN);
@@ -140,8 +135,6 @@ export const AnalyticsPieChart: React.FC<PieChartProps> = ({
     );
   };
 
-
-
   return (
     <div className="w-full flex justify-center">
       <ResponsiveContainer width={300} height={300}>
@@ -153,7 +146,7 @@ export const AnalyticsPieChart: React.FC<PieChartProps> = ({
             outerRadius={130}
             dataKey="value"
             paddingAngle={2}
-            labelLine={false} 
+            labelLine={false}
             label={renderLabel}
           >
             {data.map((_, index) => (
@@ -165,4 +158,3 @@ export const AnalyticsPieChart: React.FC<PieChartProps> = ({
     </div>
   );
 };
-

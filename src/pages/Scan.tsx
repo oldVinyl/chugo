@@ -4,33 +4,41 @@ import qrcode from "../assets/QRPlaceholder.png";
 const status = [
   {
     id: "8789",
-    status: "Success"
-  }, {
+    status: "Success",
+  },
+  {
     id: "2345",
-    status: "Success"
-  }, {
+    status: "Success",
+  },
+  {
     id: "7689",
-    status: "Failed"
-  }, {
+    status: "Failed",
+  },
+  {
     id: "0978",
-    status: "Success"
-  }, {
+    status: "Success",
+  },
+  {
     id: "1212",
-    status: "Failed"
-  }, {
+    status: "Failed",
+  },
+  {
     id: "8076",
-    status: "Failed"
-  }, {
+    status: "Failed",
+  },
+  {
     id: "4923",
-    status: "Failed"
-  }, {
+    status: "Failed",
+  },
+  {
     id: "7688",
-    status: "Success"
-  }, {
+    status: "Success",
+  },
+  {
     id: "0192",
-    status: "Failed"
-  }
-]
+    status: "Failed",
+  },
+];
 
 function Scan() {
   return (
@@ -47,7 +55,7 @@ function Scan() {
             </button>
           </div>
         </div>
-        
+
         <div className="w-1/3 h-[85vh] flex flex-col bg-white rounded-3xl overflow-hidden">
           <div className="flex justify-between items-center p-3">
             <h2 className="text-sm font-semibold">Status</h2>
@@ -56,24 +64,22 @@ function Scan() {
               <DownIcon />
             </button>
           </div>
-          <div className="h-full overflow-auto">
+          <div className="h-full overflow-auto no-scrollbar">
             <div className="p-3 flex flex-col w-full gap-1 overflow-auto">
-              { status.map((t, idx) => (
+              {status.map((t, idx) => (
                 <div className="w-full hover:bg-gray-100 px-2 py-1 rounded-xl">
                   <p className="font-medium">
-                    #{idx} - id:#{t.id}  
-                  </p> 
-                  <p>
-                    Pickup {t.status}
-                  </p> 
-                </div> 
-              ))}         
+                    #{idx} - id:#{t.id}
+                  </p>
+                  <p>Pickup {t.status}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Scan;

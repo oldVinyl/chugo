@@ -7,7 +7,7 @@ export const transactions: Transaction[] = [
     taxPerc: 43.0,
     expensesPes: 34.23,
     ordersPes: 23.0,
-    modeOfPayment: "card"
+    modeOfPayment: "card",
   },
   {
     id: "txn_002",
@@ -15,7 +15,7 @@ export const transactions: Transaction[] = [
     taxPerc: 28.4,
     expensesPes: 14.8,
     ordersPes: 9.6,
-    modeOfPayment: "credit"
+    modeOfPayment: "credit",
   },
   {
     id: "txn_003",
@@ -23,7 +23,7 @@ export const transactions: Transaction[] = [
     taxPerc: 73.2,
     expensesPes: 50.1,
     ordersPes: 32.0,
-    modeOfPayment: "card"
+    modeOfPayment: "card",
   },
   {
     id: "txn_004",
@@ -31,7 +31,7 @@ export const transactions: Transaction[] = [
     taxPerc: 12.0,
     expensesPes: 8.0,
     ordersPes: 5.2,
-    modeOfPayment: "credit"
+    modeOfPayment: "credit",
   },
   {
     id: "txn_004",
@@ -39,7 +39,7 @@ export const transactions: Transaction[] = [
     taxPerc: 12.0,
     expensesPes: 8.0,
     ordersPes: 5.2,
-    modeOfPayment: "credit"
+    modeOfPayment: "credit",
   },
   {
     id: "txn_004",
@@ -47,7 +47,7 @@ export const transactions: Transaction[] = [
     taxPerc: 12.0,
     expensesPes: 8.0,
     ordersPes: 5.2,
-    modeOfPayment: "card"
+    modeOfPayment: "card",
   },
   {
     id: "txn_004",
@@ -55,7 +55,7 @@ export const transactions: Transaction[] = [
     taxPerc: 12.0,
     expensesPes: 8.0,
     ordersPes: 5.2,
-    modeOfPayment: "credit"
+    modeOfPayment: "credit",
   },
   {
     id: "txn_004",
@@ -63,7 +63,7 @@ export const transactions: Transaction[] = [
     taxPerc: 12.0,
     expensesPes: 8.0,
     ordersPes: 5.2,
-    modeOfPayment: "credit"
+    modeOfPayment: "credit",
   },
   {
     id: "txn_004",
@@ -71,7 +71,7 @@ export const transactions: Transaction[] = [
     taxPerc: 12.0,
     expensesPes: 8.0,
     ordersPes: 5.2,
-    modeOfPayment: "credit"
+    modeOfPayment: "credit",
   },
   {
     id: "txn_004",
@@ -79,7 +79,7 @@ export const transactions: Transaction[] = [
     taxPerc: 12.0,
     expensesPes: 8.0,
     ordersPes: 5.2,
-    modeOfPayment: "credit"
+    modeOfPayment: "credit",
   },
   {
     id: "txn_004",
@@ -87,7 +87,7 @@ export const transactions: Transaction[] = [
     taxPerc: 12.0,
     expensesPes: 8.0,
     ordersPes: 5.2,
-    modeOfPayment: "credit"
+    modeOfPayment: "credit",
   },
   {
     id: "txn_004",
@@ -95,7 +95,7 @@ export const transactions: Transaction[] = [
     taxPerc: 12.0,
     expensesPes: 8.0,
     ordersPes: 5.2,
-    modeOfPayment: "card"
+    modeOfPayment: "card",
   },
   {
     id: "txn_fghbj",
@@ -103,7 +103,7 @@ export const transactions: Transaction[] = [
     taxPerc: 12.0,
     expensesPes: 8.0,
     ordersPes: 5.2,
-    modeOfPayment: "credit"
+    modeOfPayment: "credit",
   },
   {
     id: "txn_cgjvhkbjl",
@@ -111,7 +111,7 @@ export const transactions: Transaction[] = [
     taxPerc: 12.0,
     expensesPes: 8.0,
     ordersPes: 5.2,
-    modeOfPayment: "credit"
+    modeOfPayment: "credit",
   },
   {
     id: "txn_678nmu",
@@ -119,6 +119,6 @@ export const transactions: Transaction[] = [
     taxPerc: 12.0,
     expensesPes: 8.0,
     ordersPes: 5.2,
-    modeOfPayment: "credit"
-  }
+    modeOfPayment: "credit",
+  },
 ];

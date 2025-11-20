@@ -8,7 +8,7 @@ const Layout: React.FC = () => (
     <Topbar />
     <div className="flex h-full w-full gap-2">
       <Sidebar />
-      <div className="flex-1 p-4 overflow-hidden pl-[7vw] h-[85vh]">
+      <div className="flex-1 overflow-hidden pl-[7vw] h-[85vh]">
         <Outlet />
       </div>
     </div>

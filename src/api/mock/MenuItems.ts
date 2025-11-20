@@ -3,7 +3,6 @@ import item1 from "../../assets/foodPlaceholder2.png";
 import item2 from "../../assets/foodPlaceholder3.png";
 import item3 from "../../assets/foodPlaceholder4.png";
 
-
 export const menuItems: MenuItem[] = [
   {
     id: "m1",
@@ -13,7 +12,7 @@ export const menuItems: MenuItem[] = [
     discountPerc: 10,
     image: item1,
     quantityAvailiable: 12,
-    isActive:true
+    isActive: true,
   },
   {
     id: "m2",
@@ -22,7 +21,7 @@ export const menuItems: MenuItem[] = [
     discountPerc: 20,
     pricePes: 4500,
     quantityAvailiable: 12,
-    image: item2
+    image: item2,
   },
   {
     id: "m3",
@@ -30,7 +29,7 @@ export const menuItems: MenuItem[] = [
     description: "Savory beef in rich vegetable sauce.",
     pricePes: 5700,
     quantityAvailiable: 12,
-    image: item3
+    image: item3,
   },
   {
     id: "m4",
@@ -40,7 +39,7 @@ export const menuItems: MenuItem[] = [
     discountPerc: 5,
     image: item1,
     quantityAvailiable: 12,
-    isActive: true
+    isActive: true,
   },
   {
     id: "m5",
@@ -48,7 +47,7 @@ export const menuItems: MenuItem[] = [
     description: "The Italian thing",
     pricePes: 6500,
     quantityAvailiable: 12,
-    image: item2
+    image: item2,
   },
   {
     id: "m6",
@@ -56,7 +55,7 @@ export const menuItems: MenuItem[] = [
     description: "Juicy beef patty with cheese, onions, and house sauce.",
     pricePes: 4800,
     quantityAvailiable: 12,
-    image: item3
+    image: item3,
   },
   {
     id: "m7",
@@ -82,7 +81,7 @@ export const menuItems: MenuItem[] = [
     description: "Sliced chicken with creamy garlic sauce in soft pita.",
     pricePes: 3500,
     quantityAvailiable: 12,
-    image: item3
+    image: item3,
   },
   {
     id: "m10",
@@ -92,7 +91,8 @@ export const menuItems: MenuItem[] = [
     image: item1,
     quantityAvailiable: 12,
     isActive: true,
-  }, {
+  },
+  {
     id: "1",
     name: "Beef Burger",
     description: "Juicy beef patty with cheese, lettuce, and tomato",
