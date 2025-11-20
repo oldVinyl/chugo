@@ -98,7 +98,7 @@ function Home() {
     : orders;
 
   return (
-    <div className="lg:h-full w-full max-md:overflow-auto max-md:h-[93vh]">
+    <div className="lg:h-full w-full max-md:overflow-auto max-md:h-[93vh] no-scrollbar">
       <div className="w-full flex max-lg:flex-col max-lg:bg-white gap-2 h-full max-lg:h-fit">
         <div className="lg:w-3/5 max-lg:w-screen h-full flex flex-col gap-2 lg:overflow-y-auto no-scrollbar">
           <div className="relative lg:rounded-3xl w-full min-h-1/3 p-2 lg:bg-white flex flex-col max-lg:flex-nowrap gap-2 lg:pr-8">
@@ -341,7 +341,7 @@ function Home() {
           )}
         </div>
 
-        {/* >lg */}
+        {/* <lg */}
         {mobileSelectedOrder && (
           <div className="fixed inset-0 z-50 lg:hidden">
             <div
@@ -352,7 +352,7 @@ function Home() {
               }}
             />
 
-            <div className="absolute bottom-0 w-full bg-[var(--bg)] rounded-t-3xl p-4 max-h-[90vh] overflow-y-auto shadow-lg animate-slide-up">
+            <div className="absolute bottom-0 w-full bg-[var(--bg)] rounded-t-3xl p-4 max-h-[90vh] overflow-y-auto no-scrollbar shadow-lg animate-slide-up">
               <div className="flex justify-between items-center">
                 <h2 className="text-lg font-semibold">Order Details</h2>
                 <button
