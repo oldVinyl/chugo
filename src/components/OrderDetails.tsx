@@ -29,7 +29,7 @@ export const OrderDetails: React.FC<OrderDetailsProps> = ({
     100;
 
   return (
-    <div className="w-full max-h-screen rounded-3xl bg-white h-full p-2 flex flex-col items-center gap-2">
+    <div className="w-full max-h-screen rounded-3xl max-lg:border bg-white h-full p-2 max-lg:py-6 flex flex-col items-center gap-2">
       <div className="relative w-full">
         <div className="absolute top-6 right-6">
           <TickDoubleIcon />
@@ -37,11 +37,11 @@ export const OrderDetails: React.FC<OrderDetailsProps> = ({
         <div className="bg-[var(--bg)] rounded-3xl p-2 flex flex-col gap-1">
           <div>
             <p>
-              <span className="font-medium text-[2vw]">#{order.id}</span>
+              <span className="font-medium lg:text-[2vw]">#{order.id}</span>
               &nbsp;
-              <span className="text-[1.5vw]">Order #{order.orderId}</span>
+              <span className="lg:text-[1.5vw]">Order #{order.orderId}</span>
             </p>
-            <p className="text-[1.3vw]">{order.name}</p>
+            <p className="lg:text-[1.3vw]">{order.name}</p>
           </div>
 
           <div className="bg-white rounded-2xl py-1 px-4">

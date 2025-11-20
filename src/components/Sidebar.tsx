@@ -22,12 +22,12 @@ const SidebarLink: React.FC<{
       ${isActive ? "bg-[var(--acc)]" : "bg-[var(--bg)] hover:bg-gray-300"}`
     }
   >
-    <Icon className="h-[2vw] w-[2vw]" />
+    <Icon className="h-[2vw] w-[2vw] hidden lg:block" />
   </NavLink>
 );
 
 const Sidebar: React.FC = () => (
-  <div className="absolute left-2.5 flex w-[6vw] min-w-[60px] h-[var(--sidebar-cont-h)] flex-col justify-end">
+  <div className=" max-lg:hidden absolute left-2.5 flex w-[6vw] min-w-[60px] h-[var(--sidebar-cont-h)] flex-col justify-end">
     <div className="bg-white h-[var(--sidebar-h)] rounded-full flex flex-col justify-between p-2 overflow-hidden ">
       <nav className="flex flex-col justify-start items-center gap-[0.35vw]">
         <SidebarLink to="/home" Icon={HomeIcon} />

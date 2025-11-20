@@ -26,19 +26,20 @@ export const Refund: React.FC<RefundProps> = ({ order, onBack }) => {
   }, 0);
 
   return (
-    <div className="w-full max-h-screen rounded-3xl bg-white h-full p-2 flex flex-col items-center gap-2">
+    <div className="w-full max-h-screen rounded-3xl max-lg:border bg-white h-full p-2 flex flex-col items-center gap-2">
       <div className="relative w-full">
-        <div className="absolute top-6 right-6 cursor-pointer" onClick={onBack}>
-          <BackIcon />
+        <div className="absolute top-6 right-6 cursor-pointer max-lg:flex max-lg:gap-1 max-lg:items-center" onClick={onBack}>
+          <BackIcon className="inline" />
+          <p className="max-lg:inline hidden text-xs">Back to Details</p>
         </div>
         <div className="bg-[var(--bg)] rounded-3xl p-2 flex flex-col gap-1">
           <div>
             <p>
-              <span className="font-medium text-[2vw]">#{order.id}</span>
+              <span className="font-medium lg:text-[2vw]">#{order.id}</span>
               &nbsp;
-              <span className="text-[1.5vw]">Order #{order.orderId}</span>
+              <span className="lg:text-[1.5vw]">Order #{order.orderId}</span>
             </p>
-            <p className="text-[1.3vw]">{order.name}</p>
+            <p className="lg:text-[1.3vw]">{order.name}</p>
           </div>
 
           <div className="bg-white rounded-2xl py-2 px-4">
@@ -71,16 +72,16 @@ export const Refund: React.FC<RefundProps> = ({ order, onBack }) => {
                             return newQuantities;
                           });
                         }}
-                        className="w-10 h-8 text-center text-[1.25vw] border border-black rounded-lg p-0.5"
+                        className="w-10 h-8 text-center lg:text-[1.25vw] border border-black rounded-lg p-0.5"
                       />
-                      <span className="w-8 h-8 text-[1.25vw] text-center border rounded-lg p-0.5 flex items-center justify-center">
+                      <span className="w-8 h-8 lg:text-[1.25vw] text-center border rounded-lg p-0.5 flex items-center justify-center">
                         {item.quantity}x
                       </span>
-                      <span className="text-[1.25vw] ml-1">
+                      <span className="lg:text-[1.25vw] ml-1">
                         {item.menuItem.name}
                       </span>
                     </span>
-                    <span className="flex items-center text-[1.25vw] justify-center">
+                    <span className="flex items-center lg:text-[1.25vw] justify-center">
                       <CediIcon className="inline h-2.5" />
                       <span>
                         &nbsp;{(priceCedi * refundQuantities[idx]).toFixed(2)}

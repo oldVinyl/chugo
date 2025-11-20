@@ -138,7 +138,7 @@ function Basket() {
   return (
     <div className="h-full w-full">
       <div className="relative bg-white w-full h-full rounded-3xl overflow-auto no-scrollbar">
-        <div className="sticky top-0 z-50 bg-white flex gap-4 py-2 px-6">
+        <div className="sticky top-0 z-20 bg-white flex gap-4 py-2 px-6">
           <button
             className={`p-2 rounded-full ${activeTab === "food" ? "bg-[var(--bg)]" : ""}`}
             onClick={() => setActiveTab("food")}
